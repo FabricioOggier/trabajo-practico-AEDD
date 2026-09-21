@@ -4,6 +4,8 @@
 #include <string>
 using namespace std;
 
+const int MAX_APUESTAS = 1200;
+
 struct Apuesta{ 
 	int fichasJugadas; 
 	int numeroApostado; 
