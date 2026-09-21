@@ -20,7 +20,19 @@
 */
 
 void inicializarNumero(Numero &n, int valor, char color){
-
+	if(valor >= 0 and valor <= 36){
+		n.valor = valor;
+	}
+	else{
+		return;
+	}
+	
+	if(color == 'R' or color == 'N' or color == 'V'){
+		n.color = color;
+	}
+	else{
+		return; 
+	}
 }
 
 /**
@@ -39,7 +51,7 @@ void inicializarNumero(Numero &n, int valor, char color){
 */
 
 int obtenerValor(Numero n){ 
-	return 0; 
+	return n.valor; 
 }
 	
 /**
