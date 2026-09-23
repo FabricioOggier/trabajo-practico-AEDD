@@ -35,7 +35,7 @@ int main() {
 				condicion=true;
 			}
 			else{
-				cout<<"Ya se ha iniciado sesión"<<endl;
+				cout<<"Ya se ha iniciado sesion"<<endl;
 			}
 			break;
 		case '2':
@@ -43,7 +43,7 @@ int main() {
 				//estadoJugadores();
 			}
 			else{
-				cout<<"Debes iniciar sesión para acceder a esta función"<<endl;
+				cout<<"Debes iniciar sesion para acceder a esta funcion"<<endl;
 			}
 			break;
 		case '3':
@@ -51,7 +51,7 @@ int main() {
 				//historialGiros();
 			}
 			else{
-				cout<<"Debes iniciar sesión para acceder a esta función"<<endl;
+				cout<<"Debes iniciar sesion para acceder a esta funcion"<<endl;
 			}
 			break;
 		case '4':
@@ -59,7 +59,7 @@ int main() {
 				//estadisticas();
 			}
 			else{
-				cout<<"Debes iniciar sesión para acceder a esta función"<<endl;
+				cout<<"Debes iniciar sesion para acceder a esta funcion"<<endl;
 			}
 			break;
 		case '5':
@@ -71,7 +71,7 @@ int main() {
 		case 'x':
 			break;
 		default:
-			cout<<"Función desconocida"<<endl;
+			cout<<"Funcion desconocida"<<endl;
 		};
 		
 		
