@@ -54,64 +54,67 @@ Numero girarRuleta(Numero ruleta[37]){
 	
 /****************************************************
 * Función: escrutinio
+*
 * Parámetros:
 * - Jugador jugadores[] : Arreglo de jugadores.
 * - int cant : Cantidad de jugadores.
-* - Numero resultado : Casilla resultante del giro.
+* - Numero resultado : Resultado del giro de la ruleta.
+*
 * Retorna:
-* - void : No retorna ningun valor.
+* - void : No retorna ningún valor.
+*
 * Descripción:
-* Evalúa las apuestas contra el resultado obtenido y actualiza saldos aplicando las tasas de pago. Modifica las fichas, victorias y derrotas de los jugadores.
-****************************************************/
+* Evalúa la última apuesta de cada jugador según el resultado
+* obtenido y actualiza sus fichas, victorias y derrotas.
+*****************************************************/
 
 void escrutinio(Jugador jugadores[], int cant, Numero resultado){
 	int valor = obtenerValor(resultado);
-	int color = obtenerColor(resultado);
+	char color = obtenerColor(resultado);
 	int paridad = obtenerParidad(resultado);
 	
 	for(int i=0; i < cant; i++){
-		Jugador jugador = jugadores[i];
-		Apuesta apuesta = jugador.apuestas[jugador.tlApuestas];
+		Apuesta apuesta = jugadores[i].apuestas[jugadores[i].tlApuestas - 1];
 		int tipoApuesta = apuesta.tipoApuesta;
 		
 		switch(tipoApuesta){
 		case 1:
 			if(apuesta.numeroApostado == valor){
-				jugador.fichas += apuesta.fichasJugadas * 36;
-				jugador.victorias++;
+				jugadores[i].fichas += apuesta.fichasJugadas * 36;
+				jugadores[i].victorias++;
 			}else{
-				jugador.fichas -= apuesta.fichasJugadas;
-				jugador.derrotas++;
+				jugadores[i].fichas -= apuesta.fichasJugadas;
+				jugadores[i].derrotas++;
 			}
 			break;
 			
 		case 2:
 			if(apuesta.colorApostado == color){
-				jugador.fichas += apuesta.fichasJugadas;
-				jugador.victorias++;
+				jugadores[i].fichas += apuesta.fichasJugadas;
+				jugadores[i].victorias++;
 			}else{
-				jugador.fichas -= apuesta.fichasJugadas;
-				jugador.derrotas++;
+				jugadores[i].fichas -= apuesta.fichasJugadas;
+				jugadores[i].derrotas++;
 			}
 			break;
 			
 		case 3:
 			if(paridad == 1){
-				jugador.fichas += apuesta.fichasJugadas;
-				jugador.victorias++;
+				jugadores[i].fichas += apuesta.fichasJugadas;
+				jugadores[i].victorias++;
 			}else{
-				jugador.fichas -= apuesta.fichasJugadas;
-				jugador.derrotas++;
+				jugadores[i].fichas -= apuesta.fichasJugadas;
+				jugadores[i].derrotas++;
 			}
 			break;
 			
 		case 4:
 			if(paridad == 2){
-				jugador.fichas += apuesta.fichasJugadas;
-				jugador.victorias++;
+				jugadores[i].fichas += apuesta.fichasJugadas;
+				jugadores[i].victorias++;
 			}else{
-				jugador.fichas -= apuesta.fichasJugadas;
-				jugador.derrotas++;
+				jugadores[i].fichas -= apuesta.fichasJugadas;
+				jugadores[i].derrotas++;
 			}
 			break;
 		}

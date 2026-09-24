@@ -5,20 +5,32 @@ using namespace std;
 
 /************************************************************
 * Función: cargarApuestas
+*
 * Parámetros:
-* - Jugador jugadores[] : Arreglo de jugadores.
-* - int cant : Cantidad de jugadores.
+* - Jugador jugadores[] : Arreglo de jugadores donde se almacenan
+*   las apuestas realizadas.
+* - int cant : Cantidad de jugadores participantes.
+*
 * Retorna:
 * - void : No retorna ningún valor.
+*
 * Descripción:
-* Permite cargar una apuesta para cada jugador. Solicita y
-* valida la cantidad de fichas a apostar, permitiendo apostar
-* únicamente una cantidad mayor a cero y menor o igual a las
-* fichas disponibles del jugador. Luego solicita el tipo de
-* apuesta (número, color, par o impar) y almacena los datos
-* correspondientes en el arreglo de apuestas del jugador.
-* Finalmente incrementa la cantidad total de apuestas
-* realizadas por cada jugador.
+* Recorre el arreglo de jugadores y solicita a cada uno la cantidad
+* de fichas que desea apostar, validando que sea mayor a cero y no
+* supere las fichas disponibles.
+*
+* Luego solicita el tipo de apuesta:
+* 1 - Número
+* 2 - Color
+* 3 - Par
+* 4 - Impar
+*
+* Si la apuesta es a un número, valida que esté comprendido entre
+* 0 y 36. Si la apuesta es a un color, valida que sea rojo ('R')
+* o negro ('N').
+*
+* Finalmente almacena los datos de la apuesta e incrementa la
+* cantidad total de apuestas realizadas por el jugador.
 *************************************************************/
 
 void cargarApuestas(Jugador jugadores[], int cant){
@@ -47,14 +59,26 @@ void cargarApuestas(Jugador jugadores[], int cant){
 			
 		case 1:
 			cout << "Elegiste apostar a un numero" << endl;
-			cout << "Selecciona un numero" << endl;
-			cin >> jugadores[i].apuestas[jugadores[i].tlApuestas].numeroApostado;
+			do{
+				cout << "Selecciona un numero" << endl;
+				cin >> jugadores[i].apuestas[jugadores[i].tlApuestas].numeroApostado;
+				if(jugadores[i].apuestas[jugadores[i].tlApuestas].numeroApostado < 0 || jugadores[i].apuestas[jugadores[i].tlApuestas].numeroApostado > 36){
+					cout << "El numero debe estar entre 0 y 36" << endl;
+				}
+			} while(jugadores[i].apuestas[jugadores[i].tlApuestas].numeroApostado < 0 || jugadores[i].apuestas[jugadores[i].tlApuestas].numeroApostado > 36);
 			break;
 			
 		case 2:
 			cout << "Elegiste apostar a un color" << endl;
-			cout << "Selecciona un color" << endl;
-			cin >> jugadores[i].apuestas[jugadores[i].tlApuestas].colorApostado;
+			do{
+				cout << "Selecciona un color (R = Rojo, N = Negro)" << endl;
+				cin >> jugadores[i].apuestas[jugadores[i].tlApuestas].colorApostado;
+				if(jugadores[i].apuestas[jugadores[i].tlApuestas].colorApostado != 'N' &&
+				   jugadores[i].apuestas[jugadores[i].tlApuestas].colorApostado != 'R'){
+					cout << "Selecciona un color valido (R = Rojo, N = Negro)" << endl; 
+				}
+			} while(jugadores[i].apuestas[jugadores[i].tlApuestas].colorApostado != 'N' &&
+					jugadores[i].apuestas[jugadores[i].tlApuestas].colorApostado != 'R');
 			break;
 			
 		case 3:
