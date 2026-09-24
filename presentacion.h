@@ -23,4 +23,7 @@ void gotoxy(int x, int y);
 void linea(string texto, int colorTexto, int colorMarco);
 void borde(int colorMarco);
 void Presentacion();
+void Selector(bool condicion);
+void Mensaje(string texto);
+void Despedida();
 #endif
