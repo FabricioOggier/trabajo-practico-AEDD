@@ -20,19 +20,11 @@
 */
 
 void inicializarNumero(Numero &n, int valor, char color){
-	if(valor >= 0 and valor <= 36){
+	if((valor >= 0 && valor <= 36) && (color == 'R' || color == 'V' || color == 'N')){
 		n.valor = valor;
-	}
-	else{
-		return;
-	}
-	
-	if(color == 'R' or color == 'N' or color == 'V'){
 		n.color = color;
 	}
-	else{
-		return; 
-	}
+	return; 
 }
 
 /**
@@ -69,7 +61,7 @@ int obtenerValor(Numero n){
 * ****************************************************************************************
 */
 char obtenerColor(Numero n){ 
-	return 0; 
+	return n.color; 
 }
 /**
 * ****************************************************************************************
@@ -88,5 +80,11 @@ char obtenerColor(Numero n){
 * ****************************************************************************************
 */
 int obtenerParidad(Numero n){
-	return 0; 
+	int valor = 0;
+	if((n.valor % 2) == 0 && n.valor != 0) {
+		valor = 1;
+	} else if((n.valor % 2)!= 0){
+		valor = 2;
+	}
+	return valor; 
 }

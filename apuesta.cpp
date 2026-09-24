@@ -3,8 +3,23 @@
 #include <iostream>
 using namespace std;
 
-
-
+/************************************************************
+* Función: cargarApuestas
+* Parámetros:
+* - Jugador jugadores[] : Arreglo de jugadores.
+* - int cant : Cantidad de jugadores.
+* Retorna:
+* - void : No retorna ningún valor.
+* Descripción:
+* Permite cargar una apuesta para cada jugador. Solicita y
+* valida la cantidad de fichas a apostar, permitiendo apostar
+* únicamente una cantidad mayor a cero y menor o igual a las
+* fichas disponibles del jugador. Luego solicita el tipo de
+* apuesta (número, color, par o impar) y almacena los datos
+* correspondientes en el arreglo de apuestas del jugador.
+* Finalmente incrementa la cantidad total de apuestas
+* realizadas por cada jugador.
+*************************************************************/
 
 void cargarApuestas(Jugador jugadores[], int cant){
 	
