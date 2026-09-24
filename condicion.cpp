@@ -11,7 +11,7 @@
 * Descripción:
 * Verifica si la partida debe finalizar. Recorre todos los
 * jugadores comprobando si alguno se quedó sin fichas.
-* También verifica si se alcanzó el límite de 1200 apuestas
+* También verifica si se alcanzó el límite de 1200 giros
 * y el estado de la variable seguirjugando.
 * Si alguna de estas condiciones se cumple, retorna true;
 * de lo contrario, retorna false.
