@@ -16,9 +16,8 @@ int main() {
 	tamanioVentana(207, 30);
 	Presentacion();
 	
-	
 	cout<<endl<<centrar("Presione ENTER para continuar...", 207 + 2);
-	colorNormal();
+	
 	mostrarCursor();
 	cin.get();
 	limpiarPantalla();
@@ -26,8 +25,10 @@ int main() {
 	char eleccion;
 	bool condicion=false;
 	do{
-		//Selector();
+		Selector(condicion);
 		cin>>eleccion;
+		limpiarPantalla();
+		
 		switch (eleccion){
 		case '1':
 			if(!condicion){
@@ -35,7 +36,7 @@ int main() {
 				condicion=true;
 			}
 			else{
-				cout<<"Ya se ha iniciado sesion"<<endl;
+				Mensaje("Ya se ha iniciado sesion");
 			}
 			break;
 		case '2':
@@ -43,7 +44,7 @@ int main() {
 				//estadoJugadores();
 			}
 			else{
-				cout<<"Debes iniciar sesion para acceder a esta funcion"<<endl;
+				Mensaje("Debes iniciar sesion para acceder a esta funcion");
 			}
 			break;
 		case '3':
@@ -51,7 +52,7 @@ int main() {
 				//historialGiros();
 			}
 			else{
-				cout<<"Debes iniciar sesion para acceder a esta funcion"<<endl;
+				Mensaje("Debes iniciar sesion para acceder a esta funcion");
 			}
 			break;
 		case '4':
@@ -59,24 +60,25 @@ int main() {
 				//estadisticas();
 			}
 			else{
-				cout<<"Debes iniciar sesion para acceder a esta funcion"<<endl;
+				Mensaje("Debes iniciar sesion para acceder a esta funcion");
 			}
 			break;
 		case '5':
 		case '6':
 		case '7':
-			cout<<"Funcionalidad en Desarrollo"<<endl;
+			Mensaje("Funcionalidad en Desarrollo");
 			break;
 		case 'X':
 		case 'x':
 			break;
 		default:
-			cout<<"Funcion desconocida"<<endl;
+			Mensaje("Funcion desconocida");
 		};
 		
 		
 	}while(eleccion!='x' and eleccion!='X') ;
 	
+	Despedida();
 	
 	return 0;
 }

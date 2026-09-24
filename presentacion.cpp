@@ -159,10 +159,58 @@ void Presentacion(){
 	linea("",BLANCO,VERDE);
 	linea("",BLANCO,VERDE);
 	linea("UTN FRSF",AZUL,VERDE);
-	linea("Ingenieria en sistemas Comisi�n B",AZUL,VERDE);
+	linea("Ingenieria en sistemas Comision B",AZUL,VERDE);
 	linea("Algoritmos y Estructuras de Datos",AZUL,VERDE);
 	linea("",BLANCO,VERDE);
 	borde(VERDE);
+}
+void Selector(bool condicion){
+	borde(GRIS);
+	linea("",BLANCO,GRIS);
+	linea("RULETESCA",BLANCO,GRIS);
+	linea("",BLANCO,GRIS);
+	borde(GRIS);
+	if(!condicion){
+		linea("1.- Iniciar nueva sesión de ruleta",CIAN_CLARO,GRIS);
+		linea("2.- Consultar estado de jugadores",GRIS,GRIS);
+		linea("3.- Mostrar historial de giros",GRIS,GRIS);
+		linea("4.- Mostrar estadísticas de la sesion",GRIS,GRIS);
+	}
+	else{
+		linea("1.- Iniciar nueva sesión de ruleta",GRIS,GRIS);
+		linea("2.- Consultar estado de jugadores",CIAN_CLARO,GRIS);
+		linea("3.- Mostrar historial de giros",CIAN_CLARO,GRIS);
+		linea("4.- Mostrar estadísticas de la sesion",CIAN_CLARO,GRIS);
+	}
+	linea("5.- Ordenar sesiones según cantidad de giros",GRIS,GRIS);
+	linea("6.- Analizar sesiones historicas",GRIS,GRIS);
+	linea("7.- Carga de Archivo",GRIS,GRIS);
+	linea("X.- Salir de la aplicacion",ROJO,GRIS);
+	linea("",BLANCO,GRIS);
+	linea("Ingrese una opcion:",BLANCO_BRILL,GRIS);
+	gotoxy(114,14);
+}
+void Mensaje(string texto){
+	texto=centrar(texto,ANCHO);
+	color(BLANCO_BRILL);
+	cout<<texto;
+	cin.ignore();
+	cin.get();
+	limpiarPantalla();
+	colorNormal();
+}
+void Despedida(){
+	cout<<endl<<endl;
+	color(VERDE);
+	cout<<centrar("RRRR  U   U L     EEEE TTTTT EEEE  SSS    CCC      A     ",ANCHO)<<endl;
+	cout<<centrar("R   R U   U L     E      T   E    S      C        A A    ",ANCHO)<<endl;
+	cout<<centrar("RRRR  U   U L     EEEE   T   EEEE  SSS   C       A   A   ",ANCHO)<<endl;
+	cout<<centrar("R  R  U   U L     E      T   E        S  C      AAAAAAA  ",ANCHO)<<endl;
+	cout<<centrar("R   R  UUU  LLLLL EEEE   T   EEEE  SSS    CCC  A       A ",ANCHO)<<endl;
+	cout<<endl<<endl;
+	color(BLANCO_BRILL);
+	cout<<centrar("Gracias por jugar :)",ANCHO);
+	
 }
 
 	
