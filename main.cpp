@@ -16,7 +16,6 @@ int main() {
 	tamanioVentana(207, 30);
 	Presentacion();
 	
-	
 	cout<<endl<<centrar("Presione ENTER para continuar...", 207 + 2);
 	
 	mostrarCursor();
