@@ -4,6 +4,7 @@
 #include "ruleta.h"
 #include "jugador.h"
 #include "apuesta.h"
+#include "presentacion.h"
 
 /**
 * ****************************************************************************************
@@ -91,7 +92,7 @@ void escrutinio(Jugador jugadores[], int cant, Numero resultado){
 			break;
 			
 		case 2:
-			if(apuesta.colorApostado == color and valor != 0){
+			if(apuesta.colorApostado == color){
 				jugadores[i].fichas += apuesta.fichasJugadas;
 				jugadores[i].victorias++;
 			}else{
@@ -150,7 +151,10 @@ void ejecutarCicloPartidas(Numero ruleta[37], Jugador jugadores[], int cantJugad
 		Numero resultado = girarRuleta(ruleta);
 		historial[totalGiros] = resultado;
 		totalGiros++;
-		
+		limpiarPantalla();
+		generarRuleta();
+		bola(obtenerValor(resultado));
+		limpiarPantalla();
 		cout << "Salio el numero: " << obtenerValor(resultado) << " (" << obtenerColor(resultado) << ")" << endl;
 		
 		// 3. Escrutinio
@@ -170,5 +174,6 @@ void ejecutarCicloPartidas(Numero ruleta[37], Jugador jugadores[], int cantJugad
 			cout << "Desea continuar con el siguiente giro? (S/N): ";
 			cin >> continuar;
 		}
+		limpiarPantalla();
 	} while ((continuar == 'S' || continuar == 's') && totalGiros < MAX_APUESTAS && !hayQuiebra);
 }

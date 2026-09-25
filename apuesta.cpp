@@ -37,7 +37,7 @@ void cargarApuestas(Jugador jugadores[], int cant){
 	
 	for(int i = 0; i < cant; i++) { 
 		cout << "El apostador: " << jugadores[i].nombre << endl;
-		cout << "Tiene " << jugadores[i].fichas << "fichas." << endl;
+		cout << "Tiene " << jugadores[i].fichas << " fichas." << endl;
 		int apuesta = 0;
 		do{ 
 			cout << "¿Cuantas fichas desea apostar?" << endl;

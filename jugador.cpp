@@ -97,7 +97,7 @@ bool jugadorSinFichas(Jugador jugadores[], int cant) {
 * Descripción:
 * Inicializa la ruleta y carga los jugadores de la sesión.
 *****************************************************/	
-void inicioSesion(Jugador jugadores[], int &cant, Numero ruleta[37]){
+void inicioSesion(Jugador jugadores[], int &cant, Numero ruleta[]){
 	inicializarRuleta(ruleta);
 	cargarJugadores(jugadores, cant);
 }
