@@ -82,7 +82,7 @@ void escrutinio(Jugador jugadores[], int cant, Numero resultado){
 		switch(tipoApuesta){
 		case 1:
 			if(apuesta.numeroApostado == valor){
-				jugadores[i].fichas += apuesta.fichasJugadas * 36;
+				jugadores[i].fichas += apuesta.fichasJugadas * 35;
 				jugadores[i].victorias++;
 			}else{
 				jugadores[i].fichas -= apuesta.fichasJugadas;
