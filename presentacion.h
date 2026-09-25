@@ -26,4 +26,6 @@ void Presentacion();
 void Selector(bool condicion);
 void Mensaje(string texto);
 void Despedida();
+void generarRuleta();
+void bola(int ganador);
 #endif
