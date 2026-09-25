@@ -2,6 +2,7 @@
 #ifndef JUGADOR_H
 #define JUGADOR_H
 #include <string>
+#include "numero.h"
 using namespace std;
 
 const int MAX_APUESTAS = 1200;
@@ -27,5 +28,6 @@ struct Jugador {
 void cargarJugadores(Jugador jugadores[], int &cant);
 void mostrarEstadoJugadores(Jugador jugadores[], int cant);
 bool jugadorSinFichas(Jugador jugadores[], int cant);
+void inicioSesion(Jugador jugadores[], int &cant, Numero ruleta[37]);
 
 #endif

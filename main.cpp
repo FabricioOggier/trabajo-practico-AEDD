@@ -21,7 +21,9 @@ int main() {
 	mostrarCursor();
 	cin.get();
 	limpiarPantalla();
-	
+	int cant = 0;
+	Jugador jugadores[6];
+	Numero ruleta[37];
 	char eleccion;
 	bool condicion=false;
 	do{
@@ -32,7 +34,7 @@ int main() {
 		switch (eleccion){
 		case '1':
 			if(!condicion){
-				//inicioSesion();
+				inicioSesion(jugadores, cant, ruleta);
 				condicion=true;
 			}
 			else{

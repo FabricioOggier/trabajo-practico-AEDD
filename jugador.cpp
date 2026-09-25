@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include "jugador.h"
+#include "ruleta.h"
 using namespace std;
 
 /**
@@ -82,4 +83,21 @@ bool jugadorSinFichas(Jugador jugadores[], int cant) {
 		}
 	}
 	return false;
+}
+	
+
+/****************************************************
+* Función: inicioSesion
+* Parámetros:
+* - Jugador jugadores[] : Arreglo de jugadores.
+* - int &cant : Cantidad de jugadores.
+* - Numero ruleta[37] : Arreglo que representa la ruleta.
+* Retorna:
+* - void : No retorna ningún valor.
+* Descripción:
+* Inicializa la ruleta y carga los jugadores de la sesión.
+*****************************************************/	
+void inicioSesion(Jugador jugadores[], int &cant, Numero ruleta[37]){
+	inicializarRuleta(ruleta);
+	cargarJugadores(jugadores, cant);
 }
