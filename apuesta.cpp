@@ -96,9 +96,7 @@ void cargarApuestas(Jugador jugadores[], int cant){
 		}while (jugadores[i].apuestas[jugadores[i].tlApuestas].tipoApuesta < 1 || jugadores[i].apuestas[jugadores[i].tlApuestas].tipoApuesta > 4);
 		
 		jugadores[i].tlApuestas++;
-		
-		
 	}
-	
 }
 
+	
