@@ -1,19 +1,21 @@
 #include "numero.h"
-
+#include "presentacion.h"
+#include <iomanip>
+using namespace std;
 
 /**
 * ****************************************************************************************
-* FunciÛn: inicializarNumero
+* Funci√≥n: inicializarNumero
 *
-* Par·metros:
-* - Numero &n : Referencia al objeto Numero que ser· inicializado.
-* - int valor : Valor numÈrico que se asignar· al objeto.
-* - char color : Car·cter que representa el color del n˙mero.
+* Par√°metros:
+* - Numero &n : Referencia al objeto Numero que ser√° inicializado.
+* - int valor : Valor num√©rico que se asignar√° al objeto.
+* - char color : Car√°cter que representa el color del n√∫mero.
 *
 * Retorna:
-* - void : No retorna ning˙n valor.
+* - void : No retorna ning√∫n valor.
 *
-* DescripciÛn:
+* Descripci√≥n:
 * Inicializa los atributos del parameto Numero con los valores recibidos y valida
 * la consistencia de los datos ingresados.
 * ****************************************************************************************
@@ -29,16 +31,16 @@ void inicializarNumero(Numero &n, int valor, char color){
 
 /**
 * ****************************************************************************************
-* FunciÛn: obtenerValor
+* Funci√≥n: obtenerValor
 *
-* Par·metros:
-* - Numero n : Objeto Numero del cual se desea obtener el valor numÈrico.
+* Par√°metros:
+* - Numero n : Objeto Numero del cual se desea obtener el valor num√©rico.
 *
 * Retorna:
-* - int : Valor numÈrico almacenado en el objeto Numero.
+* - int : Valor num√©rico almacenado en el objeto Numero.
 *
-* DescripciÛn:
-* Accede al atributo que contiene el valor numÈrico del objeto y lo retorna.
+* Descripci√≥n:
+* Accede al atributo que contiene el valor num√©rico del objeto y lo retorna.
 * ****************************************************************************************
 */
 
@@ -48,35 +50,36 @@ int obtenerValor(Numero n){
 	
 /**
 * ****************************************************************************************
-* FunciÛn: obtenerColor
+* Funci√≥n: obtenerColor
 *
-* Par·metros:
+* Par√°metros:
 * - Numero n : Objeto Numero del cual se desea obtener el color.
 *
 * Retorna:
-* - char : Car·cter que representa el color almacenado en el objeto Numero.
+* - char : Car√°cter que representa el color almacenado en el objeto Numero.
 *
-* DescripciÛn:
+* Descripci√≥n:
 * Accede al atributo que contiene el color del objeto y lo retorna.
 * ****************************************************************************************
 */
 char obtenerColor(Numero n){ 
 	return n.color; 
 }
+	
 /**
 * ****************************************************************************************
-* FunciÛn: obtenerParidad
+* Funci√≥n: obtenerParidad
 *
-* Par·metros:
-* - Numero n : Objeto Numero cuyo valor numÈrico ser· analizado.
+* Par√°metros:
+* - Numero n : Objeto Numero cuyo valor num√©rico ser√° analizado.
 *
 * Retorna:
 * - int : 0 si el valor no es par ni impar, 1 si es par y 2 si es impar.
 *
-* DescripciÛn:
-* Analiza el valor numÈrico almacenado en el objeto y determina su paridad,
+* Descripci√≥n:
+* Analiza el valor num√©rico almacenado en el objeto y determina su paridad,
 * retornando 1 para valores pares, 2 para valores impares y 0 cuando el valor
-* no corresponde a una de estas categorÌas.
+* no corresponde a una de estas categor√≠as.
 * ****************************************************************************************
 */
 int obtenerParidad(Numero n){
@@ -87,4 +90,138 @@ int obtenerParidad(Numero n){
 		valor = 2;
 	}
 	return valor; 
+}
+	
+/**
+* ****************************************************************************************
+* Funci√≥n: guardarGiro
+*
+* Par√°metros:
+* - Numero numero[]: Pasaje por referncia al vector numeros.
+* - Numero nuevo: Copia del numero al cual guardar en el vector.
+* - int pos: Valor numerico de la posision en la que se coloca el numero nuevo.
+*
+* Retorna:
+* - void : No retorna ningun valor.
+*
+* Descripci√≥n:
+* Guarda los valores que salieron en el ultimo giro.
+* ****************************************************************************************
+*/
+void guardarGiro(Numero numeros[], Numero nuevo, int pos){
+	numeros[pos]=nuevo;
+}
+/**
+* ****************************************************************************************
+* Funci√≥n: mostrarHistorial
+*
+* Par√°metros:
+* - Numero numeros[]: Pasaje por referncia al vector numeros.
+* - int totalGiros: Valor numerico que refiere a la cantidad de giros totales.
+*
+* Retorna:
+* - void : No retorna ningun valor.
+*
+* Descripci√≥n:
+* Muestra en pantalla la secuencia numeros ganadores en orden.
+* ****************************************************************************************
+*/
+void mostrarHistorial(Numero numeros[],int totalGiros){
+	color(15);
+	cout<<centrar("Historial de giros",207);
+	cout<<endl;
+	borde(8);
+	colorNormal();
+	
+	cout<<centrar ("Numero de giro", 51);
+	cout<<centrar ("Valor", 51);
+	cout<<centrar ("color", 51);
+	cout<<centrar ("paridad", 51);
+	cout<<endl;
+	for(int i=0;i<totalGiros;i++) { 
+		string valor= to_string(obtenerValor(numeros[i]));
+		char colorN=obtenerColor(numeros[i]);
+		int paridad=obtenerParidad(numeros[i]);
+		cout<<centrar (to_string(i+1), 51);
+		cout<<centrar (valor, 51);
+		
+		if(colorN=='V'){
+			color(2);
+			cout<<centrar ("Verde", 51);
+			colorNormal();
+		}
+		else if(colorN=='N'){
+			color(15);
+			cout<<centrar ("Negro", 51);
+			colorNormal();
+		}
+		else{
+			color(4);
+			cout<<centrar ("Rojo", 51);
+			colorNormal();
+		}
+		
+		if(paridad==0){
+			cout<<centrar("No par, no impar", 51);
+		}
+		else if(paridad==1){
+			cout<<centrar("Par", 51);
+		}
+		else{
+			cout<<centrar("Impar", 51);
+		}
+		cout<<endl;
+	}
+}
+	
+/**
+* ****************************************************************************************
+* Funci√≥n: mostrarEstadisticas
+*
+* Par√°metros:
+* - Numero numeros[]: Pasaje por referncia al vector numeros.
+* - int totalGiros: Valor numerico que refiere a la cantidad de giros totales.
+*
+* Retorna:
+* - void : No retorna ningun valor.
+*
+* Descripci√≥n:
+* Muestra en pantalla las estadisticas generales del juego.
+* ****************************************************************************************
+*/
+void mostrarEstadisticas(Numero numeros[],int totalGiros){
+	float pares=0, impares=0, ceros=0, rojos=0, negros=0;
+	
+	for(int i=0;i<totalGiros;i++) { 
+		char colorN=obtenerColor(numeros[i]);
+		int paridad=obtenerParidad(numeros[i]);
+		if(paridad==0){
+			ceros++;
+		}
+		else if(paridad==1){
+			pares++;
+			if(colorN=='R'){
+				rojos++;
+			}
+			else if(colorN=='N'){
+				negros++;
+			}
+		}
+		else{
+			impares++;
+			if(colorN=='R'){
+				rojos++;
+			}
+			else if(colorN=='N'){
+				negros++;
+			}
+		}
+	}
+	cout<<fixed<<setprecision(2);
+	cout<<"Total de giros: "<<totalGiros<<endl;
+	cout<<"Porcentaje de pares: "<<(100*pares)/totalGiros<<endl;
+	cout<<"Porcentaje de impares: "<<(100*impares)/totalGiros<<endl;
+	cout<<"Porcentaje de ceros: "<<(100*ceros)/totalGiros<<endl;
+	cout<<"Cantidad de rojos: "<<rojos<<endl;
+	cout<<"Cantidad de negros: "<<negros<<endl;
 }
