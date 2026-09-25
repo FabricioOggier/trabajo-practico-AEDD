@@ -63,3 +63,23 @@ void mostrarEstadoJugadores(Jugador jugadores[], int cant){
 		cout << "Derrotas: " << j.derrotas << endl;
 	}
 }
+
+/****************************************************
+* Función: jugadorSinFichas
+* Parámetros:
+* - const Jugador jugadores[] : Arreglo de participantes.
+* - int cant : Cantidad total de participantes.
+* Retorna:
+* - bool : true si algún jugador tiene 0 fichas, false si todos tienen saldo.
+* Descripción:
+* Evalúa si algún jugador agotó su pozo de fichas.
+****************************************************/
+bool jugadorSinFichas(Jugador jugadores[], int cant) {
+	for (int i = 0; i < cant; i++) {
+		if (jugadores[i].fichas <= 0) {
+			cout << "El participante " << jugadores[i].nombre << " se quedo sin fichas" << endl;
+			return true;
+		}
+	}
+	return false;
+}

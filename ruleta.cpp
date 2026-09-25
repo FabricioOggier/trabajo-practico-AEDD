@@ -1,7 +1,9 @@
-
+#include <iostream>
 #include <cstdlib>
 #include <ctime>
 #include "ruleta.h"
+#include "jugador.h"
+#include "apuesta.h"
 
 /**
 * ****************************************************************************************
@@ -119,4 +121,54 @@ void escrutinio(Jugador jugadores[], int cant, Numero resultado){
 			break;
 		}
 	}
+}
+	
+/****************************************************
+* Función: ejecutarCicloPartidas
+* Parámetros:
+* - Numero ruleta[37] : Ruleta inicializada.
+* - Jugador jugadores[] : Arreglo de participantes.
+* - int cantJugadores : Cantidad de participantes activos.
+* - Numero historial[] : Arreglo para registrar las jugadas.
+* - int &totalGiros : Contador acumulado de tiradas.
+* Retorna:
+* - void : No retorna ningun valor.
+* Descripción:
+* Coordina el ciclo repetitivo de apuestas, giros y comprobación de corte.
+****************************************************/
+	
+void ejecutarCicloPartidas(Numero ruleta[37], Jugador jugadores[], int cantJugadores, Numero historial[], int &totalGiros) {
+	bool hayQuiebra = false;
+	char continuar;
+	
+	do {
+		// 1. Registro de apuestas
+		cargarApuestas(jugadores, cantJugadores);
+		
+		// 2. Giro de ruleta
+		cout << "No va mas!" << endl;
+		Numero resultado = girarRuleta(ruleta);
+		historial[totalGiros] = resultado;
+		totalGiros++;
+		
+		cout << "Salio el numero: " << obtenerValor(resultado) << " (" << obtenerColor(resultado) << ")" << endl;
+		
+		// 3. Escrutinio
+		escrutinio(jugadores, cantJugadores, resultado);
+		
+		// 4. Mapeo de estado de los juagdores
+		mostrarEstadoJugadores(jugadores, cantJugadores);
+		
+		// 5. Evaluación de continuidad
+		hayQuiebra = jugadorSinFichas(jugadores, cantJugadores);
+		
+		if (hayQuiebra) {
+			cout << "Fin de la sesion: Un jugador ha quedado sin fichas para jugar.";
+		} else if (totalGiros >= MAX_APUESTAS) {
+			cout << "Fin de la sesion: Se alcanzo el limite maximo de 1200 giros.";
+		} else {
+			cout << "Desea continuar con el siguiente giro? (S/N): ";
+			cin >> continuar;
+		}
+	} while ((continuar == 'S' || continuar == 's') && totalGiros < MAX_APUESTAS && !hayQuiebra);
 }

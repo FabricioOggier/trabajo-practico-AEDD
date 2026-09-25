@@ -26,5 +26,6 @@ struct Jugador {
 
 void cargarJugadores(Jugador jugadores[], int &cant);
 void mostrarEstadoJugadores(Jugador jugadores[], int cant);
+bool jugadorSinFichas(Jugador jugadores[], int cant);
 
 #endif
