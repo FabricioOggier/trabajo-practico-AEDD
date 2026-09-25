@@ -91,7 +91,7 @@ void escrutinio(Jugador jugadores[], int cant, Numero resultado){
 			break;
 			
 		case 2:
-			if(apuesta.colorApostado == color){
+			if(apuesta.colorApostado == color and valor != 0){
 				jugadores[i].fichas += apuesta.fichasJugadas;
 				jugadores[i].victorias++;
 			}else{
