@@ -140,7 +140,7 @@ void escrutinio(Jugador jugadores[], int cant, Numero resultado){
 	
 void ejecutarCicloPartidas(Numero ruleta[37], Jugador jugadores[], int cantJugadores, Numero historial[], int &totalGiros) {
 	bool hayQuiebra = false;
-	char continuar;
+	char continuar = 'S';
 	
 	do {
 		// 1. Registro de apuestas

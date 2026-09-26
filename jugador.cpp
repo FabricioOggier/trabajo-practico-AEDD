@@ -2,6 +2,7 @@
 #include <iostream>
 #include "jugador.h"
 #include "ruleta.h"
+#include <iomanip>
 using namespace std;
 
 /**
@@ -56,13 +57,15 @@ void cargarJugadores(Jugador jugadores[], int &cant){
 void mostrarEstadoJugadores(Jugador jugadores[], int cant){
 	cout << "==ESTADO DE JUGADORES==" << endl;
 	
+	cout << left << setw(15) << "Nombre" << setw(15) << "Fichas"
+		<< setw(15) << "Victorias" << setw(15) << "Derrotas" << endl;
+	cout << "-----------------------------------------------------------------" << endl;
+	
 	for(int i=0; i < cant; i++){
-		Jugador j = jugadores[i];
-		cout << "Nombre: " << j.nombre << endl;
-		cout << "Fichas: " << j.fichas << endl;
-		cout << "Victorias: " << j.victorias << endl;
-		cout << "Derrotas: " << j.derrotas << endl;
+		cout << left << setw(15) << jugadores[i].nombre << setw(15) << jugadores[i].fichas
+			<< setw(15) << jugadores[i].victorias << setw(15) << jugadores[i].derrotas << endl;
 	}
+	cout << "-----------------------------------------------------------------" << endl;
 }
 
 /****************************************************

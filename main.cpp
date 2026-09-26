@@ -27,7 +27,7 @@ int main() {
 	char eleccion;
 	bool condicion=false;
 	Numero registroNumeros[1200];
-	int giros;
+	int giros = 0;
 	do{
 		Selector(condicion);
 		cin>>eleccion;
